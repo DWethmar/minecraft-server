@@ -2,7 +2,7 @@
 minecraft server config files
 
 some setup:
--  openssl req -newkey rsa:2048 -nodes -keyout domain.key -out nginx/certbot/domain.csr
+-  openssl req -newkey rsa:2048 -nodes -keyout nginx/domain.key -out nginx/domain.csr
 
 Obtain the SSL Certificate
  - docker-compose run --rm certbot certonly --webroot --webroot-path=/var/www/certbot -d your_domain.com
