@@ -7,6 +7,10 @@ services:
       - 25565:25565
     environment:
       EULA: "TRUE"
+      TYPE: FABRIC 
+      MODRINTH_PROJECTS: fabric-api,fabric-language-kotlin,bmarker
+      ENABLE_ROLLING_LOGS: true
+      MAX_MEMORY: 4G
     tty: true
     stdin_open: true
     restart: unless-stopped
@@ -49,6 +53,8 @@ services:
       - ./bluemap/web:/app/web
   nginx:
     image: nginx:latest
+    depends_on:
+      - bluemap
     ports:
       - "8080:80"
       - "4443:443"
